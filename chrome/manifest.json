@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Text Explain Extension",
+  "name": "Quick Explain",
   "version": "1.0",
   "permissions": [
     "contextMenus",
@@ -11,9 +11,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": [
-    "<all_urls>"
-  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -29,7 +26,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://*/*", "http://*/*"],
       "js": ["content.js"]
     }
   ],

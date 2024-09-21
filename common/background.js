@@ -9,7 +9,6 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "explainText") {
     const selectedText = info.selectionText;
-
     // Retrieve the API key from local storage
     chrome.storage.local.get(['openaiApiKey'], async (result) => {
       const apiKey = result.openaiApiKey;
@@ -18,6 +17,8 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
         const explanation = await fetchExplanation(selectedText, apiKey);
 
         // Send a message to the content script to show the popup at the correct position
+        console.log("About to send message to content scripts...");
+        console.log("Current Tab.ID:", tab.id);
         chrome.tabs.sendMessage(tab.id, {
           action: "showExplanationPopup",
           explanation: explanation

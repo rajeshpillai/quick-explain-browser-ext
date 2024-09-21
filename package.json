@@ -1,0 +1,25 @@
+{
+  "name": "quick-explain-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "build:chrome": "gulp copy:chrome && gulp zip:chrome",
+    "build:firefox": "gulp copy:firefox && gulp zip:firefox",
+    "clean": "gulp clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "gulp": "^5.0.0",
+    "gulp-copy": "^5.0.0",
+    "gulp-zip": "^6.0.0"
+  },
+  "devDependencies": {
+    "mkdirp": "^3.0.1",
+    "rimraf": "^6.0.1"
+  }
+}
